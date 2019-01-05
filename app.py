@@ -35,25 +35,25 @@ loc_lock = np.where(result_lock >= threshold)
 loc_unlock = np.where(result_unlock >= threshold)
 
 # output object
-mags = {"mags" : []}
+leafee = {"leafee" : []}
 
 count = 0
 
 # result lock
 for pt in zip(*loc_lock[::-1]):
-    mags["mags"].append({"id" : count, "state" : "locked"})
+    leafee["leafee"].append({"id" : count, "state" : "locked"})
     count += 1
 
 # result unlock
 for pt in zip(*loc_unlock[::-1]):
-    mags["mags"].append({"id" : count, "state" : "unlocked"})
+    leafee["leafee"].append({"id" : count, "state" : "unlocked"})
     count += 1
 
 # TODO unkown state
 while count < mag_size:
-    mags["mags"].append({"id" : count, "state" : "unknown"})
+    leafee["leafee"].append({"id" : count, "state" : "unknown"})
     count += 1
 
 # Output
 out = open(output_path, 'w')
-json.dump(mags, out, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
+json.dump(leafee, out, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))

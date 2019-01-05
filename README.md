@@ -26,7 +26,7 @@ ARGV[3] : 利用しているleafee magの個数
 ## 出力結果(例)
 ```
 {
-    "mags": [
+    "leafee": [
         {
             "id": 0,
             "state": "locked"
