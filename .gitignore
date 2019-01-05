@@ -139,8 +139,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# Myfiles
-leafee.json
-config.ini
-/image

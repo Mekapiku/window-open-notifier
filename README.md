@@ -1,4 +1,4 @@
-# Leafee API
+# Windows Open Notifier
 
 ## これは何？
 [Leafee](https://leafee.me/)の画面キャプチャから無理やりJSONファイルを生成するやつです．
@@ -14,17 +14,13 @@
     * `pip install opencv-python matplotlib`
 * 現在の窓の開閉状況をJSONで出力できます
 
-## 設定
+## 実行
 ```
-[file_path]
-source = iPhone4sの画面画像
-output = 出力結果(json)
-template_lock = ロック状態のテンプレート画像
-template_unlock = アンロック状態のテンプレート画像
+python app.py out.json screenshot.png 3
 
-[settings]
-threshold = テンプレートマッチの適合度(0.99くらいでOK)
-mag_size = 利用しているleafee magの個数
+ARGV[1] : 出力結果(json)ファイル名
+ARGV[2] : iPhone4sの画面画像
+ARGV[3] : 利用しているleafee magの個数
 ```
 
 ## 出力結果(例)
@@ -37,8 +33,15 @@ mag_size = 利用しているleafee magの個数
         },
         {
             "id": 1,
-            "state": "unlocked"
+            "state": "locked"
+        },
+        {
+            "id": 2,
+            "state": "locked"
         }
     ]
 }
 ```
+
+## その他
+[Leafeeシングルプラン](https://leafee.me/price)に加入したほうが早いし安いし便利です．

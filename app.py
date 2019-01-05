@@ -1,22 +1,21 @@
+import sys
 import cv2
 import numpy as np
 
 import json
-import configparser
 
-# config
-config = configparser.ConfigParser()
-config.read('./config.ini', 'UTF-8')
+if len(sys.argv) < 4:
+    sys.exit(-1)
 
 ## file path
-source_path = config.get('file_path', 'source')
-output_path = config.get('file_path', 'output')
-templace_lock_path = config.get('file_path', 'template_lock')
-templace_unlock_path = config.get('file_path', 'template_unlock')
+output_path = sys.argv[1]
+source_path = sys.argv[2]
+templace_lock_path = "template/lock.png"
+templace_unlock_path = "template/unlock.png"
 
 # parameters
-threshold = float(config.get('settings', 'threshold'))
-mag_size = int(config.get('settings', 'mag_size'))
+threshold = 0.99
+mag_size = int(sys.argv[3])
 
 
 # source image
