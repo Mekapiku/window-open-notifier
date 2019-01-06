@@ -40,14 +40,14 @@ leafee_list = []
 loc_x = loc_lock[0]; loc_y = loc_lock[1]
 index = 0
 while index < len(loc_x):
-    leafee_list.append({"x":loc_x[index], "y":loc_y[index], "state":"locked"})
+    leafee_list.append({"x":round(loc_x[index], -2), "y":round(loc_y[index], -2), "state":"locked"})
     index += 1
 
 # unlocked objects
 loc_x = loc_unlock[0]; loc_y = loc_unlock[1]
 index = 0
 while index < len(loc_x):
-    leafee_list.append({"x":loc_x[index], "y":loc_y[index], "state":"unlocked"})
+    leafee_list.append({"x":round(loc_x[index], -2), "y":round(loc_y[index], -2), "state":"unlocked"})
     index += 1
 
 # Sort By x -> y
@@ -55,8 +55,10 @@ while index < len(loc_x):
 #          id3 -> 0, 100, ...
 sorted_leafee_list = sorted(
   leafee_list,
-  key = lambda x: (x["y"], x["x"])
+  key = lambda x: (x["x"], x["y"])
 )
+
+print sorted_leafee_list
 
 # output leafee
 leafee = {}; leafee["leafee"] = []
@@ -75,3 +77,5 @@ while count < mag_size:
 # Output
 with open(output_path, 'w') as out:
     json.dump(leafee, out, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
+
+print json.dump(leafee, sys.stdout, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
