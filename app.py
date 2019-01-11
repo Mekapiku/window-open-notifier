@@ -58,8 +58,6 @@ sorted_leafee_list = sorted(
   key = lambda x: (x["x"], x["y"])
 )
 
-print sorted_leafee_list
-
 # output leafee
 leafee = {}; leafee["leafee"] = []
 
@@ -77,5 +75,3 @@ while count < mag_size:
 # Output
 with open(output_path, 'w') as out:
     json.dump(leafee, out, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
-
-print json.dump(leafee, sys.stdout, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
